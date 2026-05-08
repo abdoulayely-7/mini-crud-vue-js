@@ -1,0 +1,30 @@
+# Dossier node_modules
+node_modules/
+
+# Dossier de build
+dist/
+.vite/
+
+# Dossier Git
+.git/
+
+# Fichiers Git
+.gitattributes
+.gitignore
+
+# Fichiers IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Lock files (optionnel, on veut package-lock.json dans l'image)
+npm-debug.log*
+
+# Fichiers de test et coverage
+coverage/
+.vitest/
