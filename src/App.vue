@@ -1,15 +1,7 @@
 <template>
-  {{title}}
+  <UserView />
 </template>
 
-
-<script>
-export default {
-  data() {
-    return {
-      title: 'User Management System',
-    }
-  },
-}
+<script setup>
+  import UserView from "./views/UserView.vue";
 </script>
-
