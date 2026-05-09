@@ -9,3 +9,7 @@ export const createUser = async (payload) => {
 export const getAllUsers = async () => {
     return await axios.get(API_URL);
 };
+
+export const deleteUser = async (id) => {
+    return await axios.delete(`${API_URL}/${id}`);
+};

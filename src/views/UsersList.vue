@@ -45,7 +45,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { getAllUsers } from "../services/userService";
+import { getAllUsers, deleteUser as deleteUserApi } from "../services/userService";
 
 const users = ref([]);
 const loading = ref(false);
@@ -66,10 +66,16 @@ const loadUsers = async () => {
   }
 };
 
-const deleteUser = (id) => {
-  if (confirm("Are you sure?")) {
-    users.value = users.value.filter(user => user.id !== id);
-    alert("User deleted (placeholder)");
+const deleteUser = async (id) => {
+  if (confirm("Are you sure you want to delete this user?")) {
+    try {
+      await deleteUserApi(id);
+      users.value = users.value.filter(user => user.id !== id);
+      alert("User deleted successfully");
+    } catch (err) {
+      error.value = "Failed to delete user";
+      console.error(err);
+    }
   }
 };
 
